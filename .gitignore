@@ -1,11 +1,9 @@
 docs
-test*                                                                                                                                                                             
 *.a
 *.so
 *.o
 *.out
 *.log
 minunit.h
-todo.md
 gnlTester
 *.gch

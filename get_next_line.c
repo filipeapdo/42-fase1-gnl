@@ -6,7 +6,7 @@
 /*   By: fiaparec <fiaparec@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 07:53:33 by fiaparec          #+#    #+#             */
-/*   Updated: 2022/02/15 22:20:10 by fiaparec         ###   ########.fr       */
+/*   Updated: 2022/02/16 08:11:20 by fiaparec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char	*flp_new_chunck(char *chunck)
 {
-	int		i;
+	size_t	i;
 	char	*s_new_chunck;
 
 	i = 0;
@@ -35,7 +35,7 @@ char	*flp_new_chunck(char *chunck)
 
 char	*flp_get_line(char *chunck)
 {
-	int		i;
+	size_t	i;
 	char	*s_line;
 
 	i = 0;
