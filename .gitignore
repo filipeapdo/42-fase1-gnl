@@ -4,5 +4,7 @@ test*
 *.so
 *.o
 *.out
+*.log
 minunit.h
 todo.md
+gnlTester
