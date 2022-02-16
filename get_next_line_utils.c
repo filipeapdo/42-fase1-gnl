@@ -6,13 +6,13 @@
 /*   By: fiaparec <fiaparec@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 10:59:18 by fiaparec          #+#    #+#             */
-/*   Updated: 2022/02/15 07:19:49 by fiaparec         ###   ########.fr       */
+/*   Updated: 2022/02/15 22:10:27 by fiaparec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*flp_gnljoin(char *s1, char const *s2)
 {
 	char	*s_join;
 
@@ -27,6 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	ft_strlcpy(s_join, s1, ft_strlen(s1) + 1);
 	ft_strlcat(s_join, s2, ft_strlen(s1) + ft_strlen(s2) + 1);
+	free(s1);
 	return (s_join);
 }
 

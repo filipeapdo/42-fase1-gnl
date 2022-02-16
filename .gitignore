@@ -8,3 +8,4 @@ test*
 minunit.h
 todo.md
 gnlTester
+*.gch
