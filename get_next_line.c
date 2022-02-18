@@ -6,7 +6,7 @@
 /*   By: fiaparec <fiaparec@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 07:53:33 by fiaparec          #+#    #+#             */
-/*   Updated: 2022/02/16 08:11:20 by fiaparec         ###   ########.fr       */
+/*   Updated: 2022/02/18 17:24:55 by fiaparec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 char	*flp_new_chunck(char *chunck)
 {
-	size_t	i;
+	int		i;
+	int		j;
 	char	*s_new_chunck;
 
 	i = 0;
@@ -28,14 +29,18 @@ char	*flp_new_chunck(char *chunck)
 	s_new_chunck = (char *)malloc(sizeof(char) * (ft_strlen(chunck) - i + 1));
 	if (!s_new_chunck)
 		return (NULL);
-	ft_strlcpy(s_new_chunck, (chunck + i + 1), (ft_strlen(chunck) - i + 1));
+	i++;
+	j = 0;
+	while (*(chunck + i))
+		*(s_new_chunck + j++) = *(chunck + i++);
+	*(s_new_chunck + j) = '\0';
 	free(chunck);
 	return (s_new_chunck);
 }
 
 char	*flp_get_line(char *chunck)
 {
-	size_t	i;
+	int		i;
 	char	*s_line;
 
 	i = 0;
@@ -46,10 +51,18 @@ char	*flp_get_line(char *chunck)
 	s_line = (char *)malloc(sizeof(char) * (i + 2));
 	if (!s_line)
 		return (NULL);
+	i = 0;
+	while (*(chunck + i) && *(chunck + i) != '\n')
+	{
+		*(s_line + i) = *(chunck + i);
+		i++;
+	}
 	if (*(chunck + i) == '\n')
-		ft_strlcpy(s_line, chunck, (i + 2));
-	if (*(chunck + i) == '\0')
-		ft_strlcpy(s_line, chunck, (i + 1));
+	{
+		*(s_line + i) = *(chunck + i);
+		i++;
+	}
+	*(s_line + i) = '\0';
 	return (s_line);
 }
 
