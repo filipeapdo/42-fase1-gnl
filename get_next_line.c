@@ -6,11 +6,15 @@
 /*   By: fiaparec <fiaparec@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/13 07:53:33 by fiaparec          #+#    #+#             */
-/*   Updated: 2022/02/16 08:11:20 by fiaparec         ###   ########.fr       */
+/*   Updated: 2022/02/20 11:29:40 by fiaparec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+// ❯ gcc -Wall -Wextra -Werror -ggdb3 get_next_line.h get_next_line_utils.c get_next_line.c test.c
+// ❯ time valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file="valgrind.log" ./a.out > a.log   >>>   4.53s user 0.07s system 99% cpu 4.596 total
+// ❯ time valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes -s --log-file="valgrind.log" ./a.out > a.log   >>>   4.56s user 0.03s system 99% cpu 4.593 total
 
 char	*flp_new_chunck(char *chunck)
 {
