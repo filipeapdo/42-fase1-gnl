@@ -6,7 +6,7 @@
 /*   By: fiaparec <fiaparec@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/25 10:59:18 by fiaparec          #+#    #+#             */
-/*   Updated: 2022/02/18 17:52:02 by fiaparec         ###   ########.fr       */
+/*   Updated: 2022/05/25 20:55:06 by fiaparec         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 // 		real    0m5.491s
 // 		user    0m5.441s
 // 		sys     0m0.051s
-char	*flp_gnljoin(char *s1, const char *s2)
+char	*flp_gnljoin(char *s1, const char *s2) // (|2|2|2|\0|\0|, |2|2|2|2|\0|)
 {
 	size_t	i;
 	size_t	j;
@@ -52,19 +52,19 @@ char	*flp_gnljoin(char *s1, const char *s2)
 	}
 	if (!s1 || !s2)
 		return (NULL);
-	s_join = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	s_join = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1)); //| | | | | | | | |[8]
 	if (!s_join)
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (*(s1 + i))
-		*(s_join + j++) = *(s1 + i++);
+	while (s1[i])
+		s_join[j++] = *(s1 + i++); //|2|2|2| | | | | |[8]
 	i = 0;
 	while (*(s2 + i))
-		*(s_join + j++) = *(s2 + i++);
-	*(s_join + j) = '\0';
+		*(s_join + j++) = *(s2 + i++); //|2|2|2|2|2|2|2| |[8]
+	*(s_join + j) = '\0'; //|2|2|2|2|2|2|2|\0|[8]
 	free(s1);
-	return (s_join);
+	return (s_join); //|2|2|2|2|2|2|2|\0|[8]
 }
 
 char	*ft_strdup(const char *s)

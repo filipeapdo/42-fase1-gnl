@@ -7,7 +7,7 @@ int		main(void)
 	int		fd;
 	char	*pl;
 	
-	fd = open("foo.txt", O_RDONLY);
+	fd = open("test.txt", O_RDONLY);
 	if (fd < 0)
 	{
 		perror("r1");
@@ -44,19 +44,19 @@ int		main(void)
 						[main]pl == "1234\0"
 	*/
 	pl = get_next_line(fd);
-	printf("   1   test.c: %s@", pl);
+	printf("   1   test.c: %s@", pl); // |1|2|3|4|\n|\0|[6]
 	free(pl);
 	pl = get_next_line(fd);
-	printf("   2   test.c: %s@", pl);
+	printf("   2   test.c: %s@", pl); // |2|2|2|2|2|2|2|\n|\0|[9]
+	free(pl);
+	pl = get_next_line(fd); 
+	printf("   3   test.c: %s@", pl); // |1|1|1|1|\n|\0|[6]
 	free(pl);
 	pl = get_next_line(fd);
-	printf("   3   test.c: %s@", pl);
+	printf("   4   test.c: %s@", pl); // |2|2|2|2|3|\n|\0|[7]
 	free(pl);
 	pl = get_next_line(fd);
-	printf("   4   test.c: %s@", pl);
-	free(pl);
-	pl = get_next_line(fd);
-	printf("   5   test.c: %s@", pl);
+	printf("   5   test.c: %s@", pl); // |\n|\0|[2]
 	free(pl);
 	pl = get_next_line(fd);
 	printf("   6   test.c: %s@", pl);
